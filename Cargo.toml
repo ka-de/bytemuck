@@ -3,12 +3,12 @@ name = "bytemuck"
 description = "A crate for mucking around with piles of bytes."
 version = "1.16.0"
 authors = ["Lokathor <zefria@gmail.com>"]
-repository = "https://github.com/Lokathor/bytemuck"
+repository = "https://github.com/ka-de/bytemuck"
 readme = "README.md"
 keywords = ["transmute", "bytes", "casting"]
 categories = ["encoding", "no-std"]
 edition = "2018"
-license = "Zlib OR Apache-2.0 OR MIT"
+license = "MIT"
 exclude = ["/pedantic.bat"]
 
 [features]
@@ -50,7 +50,9 @@ nightly_docs = []
 bytemuck_derive = { version = "1.4", path = "derive", optional = true }
 
 [lints.rust]
-unexpected_cfgs = { level = "deny", check-cfg = ['cfg(target_arch, values("spirv"))'] }
+unexpected_cfgs = { level = "deny", check-cfg = [
+  'cfg(target_arch, values("spirv"))',
+] }
 
 [package.metadata.docs.rs]
 # Note(Lokathor): Don't use all-features or it would use `unsound_ptr_pod_impl` too.
